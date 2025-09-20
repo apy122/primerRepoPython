@@ -8,6 +8,7 @@ class GestionEmpleado:
     def listar_empleados(self):
         for emp in self.empleados:
             print(emp)
+
     def agregar_empleado1(self):
         idEmpleado = self.contador_id
         nombre = input("Ingrese nombre del empleado: ")
@@ -22,14 +23,18 @@ class GestionEmpleado:
         self.empleados.append(empleado)
         self.contador_id += 1
     
-    def modificar_empleado(self, idEmpleado: int, nombre: str = None, puesto: str = None, salario: float = None):
+    def modificar_empleado (self):
+        idEmpleado= int(input("Ingrese el ID del empleado a modificar: "))
         for emp in self.empleados:
-            if emp.idEmpleado == idEmpleado:
-                if nombre:
-                    emp.nombre = nombre
-                if puesto:
-                    emp.puesto = puesto
-                if salario:
-                    emp.salario = salario
-                return emp
-        raise ValueError(f"Empleado con ID {idEmpleado} no encontrado.")
+            try:
+                if self.empleados != None and emp.idEmpleado == idEmpleado:
+                    emp.nombre = input("Ingrese nuevo nombre del empleado (dejar en blanco para no cambiar): ")
+                    emp.apellido = input("Ingrese nuevo apellido (dejar en blanco para no cambiar): ")
+                    emp.edad = input("Ingrese nueva edad del empleado (dejar en blanco para no cambiar): ")
+                    emp.puesto = input("Ingrese nuevo puesto del empleado (dejar en blanco para no cambiar): ")
+            except ValueError:
+                print("Entrada invalida. Por favor, intente de nuevo.")
+                return
+            
+            raise ValueError(f"Empleado con ID {idEmpleado} no encontrado.")
+        

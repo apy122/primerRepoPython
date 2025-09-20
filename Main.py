@@ -21,9 +21,7 @@ class main():
       emp2 = Empleado (2, "Luis", "TI",21, 2500)
       emp3 = Empleado(3, "Marta", "RRHH", 25,  2300)
 
-      self.gestion.agregar_empleado2(emp1)
-      self.gestion.agregar_empleado2(emp2)
-      self.gestion.agregar_empleado2(emp3)
+      self.empleados = [emp1, emp2, emp3]
    
    def mostrar_menu(self):
       for opcion in self.menu:
