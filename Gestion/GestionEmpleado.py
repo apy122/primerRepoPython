@@ -22,9 +22,36 @@ class GestionEmpleado:
     def agregar_empleado2(self, empleado : Empleado):
         self.empleados.append(empleado)
         self.contador_id += 1
+        print(f"Empleado {empleado.nombre} agregado exitosamente.")
+        return
     
     def modificar_empleado (self):
-         try:
+        try:
             idEmpleado = int(input("Ingrese el ID del empleado a modificar: "))
-         except ValueError:
+        except ValueError:
             print("Entrada inválida. El ID debe ser un número.")
+
+        for emp in self.empleados:
+            if emp.idEmpleado == idEmpleado:
+                nombre= input("Ingrese nuevo nombre del empleado: ")
+                apellidos = input("Ingrese nuevo nombre del empleado: ")
+                edad = int(input("Ingrese nueva edad del empleado: "))
+                puesto = input("Ingrese nuevo puesto del empleado: ")
+                emp.nombre = nombre
+                emp.apellidos = apellidos
+                emp.edad = edad
+                emp.puesto = puesto
+                print(f"Empleado con ID {idEmpleado} modificado exitosamente.")
+                return
+    
+    def eliminar_empleado(self):
+        try:
+            idEmpleado = int(input("Ingrese el ID del empleado a eliminar: "))
+        except ValueError:
+            print("Entrada inválida. El ID debe ser un número.")
+
+        for emp in self.empleados:
+            if emp.idEmpleado == idEmpleado:
+                self.empleados.remove(emp)
+                print(f"Empleado con ID {idEmpleado} eliminado exitosamente.")
+                return
